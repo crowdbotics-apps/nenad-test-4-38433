@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Text, StyleSheet, View, ScrollView, SafeAreaView, TextInput, Pressable } from "react-native";
 
 const AddCardDetailsScreen = route => {
+  const navigation = useNavigation();
   const {} = route.params || {};
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -15,7 +17,9 @@ const AddCardDetailsScreen = route => {
   const [cvv, setCvv] = useState("");
   return <SafeAreaView style={styles.container}>
       <ScrollView>
-        <View style={styles.header}>
+        <Pressable onPress={() => {
+        navigation.navigate("Untitled2");
+      }}><View style={styles.header}>
           <View style={styles.paletteContainer}>
             <View style={styles.unSelected}>
               <Text>Linked Cards</Text>
@@ -24,12 +28,14 @@ const AddCardDetailsScreen = route => {
               <Text>Add Card</Text>
             </View>
           </View>
-        </View>
+        </View></Pressable>
         <View style={styles.fullInputs}>
-          <View style={styles.inputContainer}>
+          <Pressable onPress={() => {
+          navigation.navigate("addReview");
+        }}><View style={styles.inputContainer}>
             <Text style={styles.inputText}>First Name</Text>
             <TextInput style={styles.input} onChangeText={text => setFirstName(text)} value={firstName} placeholder="Enter your first name" placeholderTextColor="#9B9B9B" autoCapitalize="none" autoCorrect={false} />
-          </View>
+          </View></Pressable>
           <View style={styles.inputContainer}>
             <Text style={styles.inputText}>Last Name</Text>
             <TextInput style={styles.input} onChangeText={text => setLastName(text)} value={lastName} placeholder="Enter your last name" placeholderTextColor="#9B9B9B" autoCapitalize="none" autoCorrect={false} />

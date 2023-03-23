@@ -1,19 +1,26 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 
 const TwoRows = () => {
+  const navigation = useNavigation();
   return <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.sectionContainer}>
-        <View style={styles.section}>
+        <Pressable onPress={() => {
+        navigation.navigate("addReview");
+      }}><View style={styles.section}>
           {
-          /* YOUR CODE HERE */
-        }
-        </View>
-        <View style={styles.section}>
+            /* YOUR CODE HERE */
+          }
+        </View></Pressable>
+        <Pressable onPress={() => {
+        navigation.navigate("addCardDetails");
+      }}><View style={styles.section}>
           {
-          /* YOUR CODE HERE */
-        }
-        </View>
+            /* YOUR CODE HERE */
+          }
+        </View></Pressable>
       </View>
     </ScrollView>;
 };
@@ -36,7 +43,10 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     padding: 15,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    flexWrap: "no-wrap",
+    width: 32,
+    height: 26
   },
   textHeading1: {
     fontSize: 20,
