@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, View, ScrollView, SafeAreaView, TextInput, Pressable } from "react-native";
 
-const AddCardDetailsScreen = params => {
+const AddCardDetailsScreen = route => {
+  const {} = route.params || {};
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [address1, setAddress1] = useState("");
