@@ -14,7 +14,6 @@
   "dependencies": {
     "@modules/chat": "file:./modules/chat/",
     "@modules/social-login": "file:./modules/social-login/",
-    "@modules/splash": "file:./modules/splash/",
     "@react-native-community/checkbox": "0.5.10",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.9.3",
