@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, SafeAreaView, Image } from "react-native";
 
-const AboutTheAppScreen = params => {
+const AboutTheAppScreen = () => {
+  const navigation = useNavigation();
   const [ImageSource, setImageSource] = useState();
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
@@ -16,7 +19,9 @@ const AboutTheAppScreen = params => {
         <Image style={styles.threeDots} source={require("./assets/3Dots.png")} />
       </View>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{text1}</Text>
+        <Pressable onPress={() => {
+        navigation.navigate("addReview");
+      }}><Text style={styles.text}>{text1}</Text></Pressable>
         <Text style={styles.text}>{text2}</Text>
       </View>
     </SafeAreaView>;
